@@ -1,5 +1,6 @@
 import React from "react";
 import { FC, useState } from "react";
+import styled from "styled-components";
 import HeroCard from "./HeroCard";
 
 export const heroes = [
@@ -29,13 +30,20 @@ export const heroes = [
   },
 ];
 
+const List = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  max-width: 480px;
+`;
+
 const HeroList: FC = () => {
   return (
-    <>
+    <List>
       {heroes.map((hero) => (
         <HeroCard key={hero.id} hero={hero}></HeroCard>
       ))}
-    </>
+    </List>
   );
 };
 

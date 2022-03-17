@@ -18,7 +18,7 @@ const HeroCard = ({ hero }: { hero: HeroCardHero }) => {
   return (
     <Link href={`/heroes/${hero.id}`} passHref scroll={false}>
       <Card>
-        <img src={hero.image}></img>
+        <img alt={`${hero.name} image`} src={hero.image}></img>
         {hero.name}
       </Card>
     </Link>
