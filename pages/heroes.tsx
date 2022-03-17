@@ -1,13 +1,3 @@
-import type { NextPage } from "next";
-import HeroList from "../components/HeroList";
+import HeroPage from "../components/HeroPage";
 
-const Heroes: NextPage = () => {
-  return (
-    <div>
-      <HeroList></HeroList>
-      Heroes
-    </div>
-  );
-};
-
-export default Heroes;
+export default HeroPage;

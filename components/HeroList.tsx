@@ -1,4 +1,5 @@
-import { FC } from "react";
+import React from "react";
+import { FC, useState } from "react";
 import HeroCard from "./HeroCard";
 
 export const heroes = [
@@ -38,4 +39,5 @@ const HeroList: FC = () => {
   );
 };
 
-export default HeroList;
+// 因為需求所以 memo 避免 re-render，不一定需要
+export default React.memo(HeroList);
