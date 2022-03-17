@@ -34,7 +34,7 @@ const List = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  max-width: 480px;
+  max-width: 540px;
 `;
 
 const HeroList: FC = () => {
