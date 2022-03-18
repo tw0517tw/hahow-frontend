@@ -1,8 +1,9 @@
+import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import styled from "styled-components";
 
-type HeroCardHero = {
+export type HeroCardHero = {
   id: string;
   name: string;
   image: string;
@@ -35,7 +36,12 @@ const HeroCard = ({ hero }: { hero: HeroCardHero }) => {
     <Link href={`/heroes/${hero.id}`} passHref scroll={false}>
       <a>
         <Card isActive={heroId === hero.id}>
-          <img alt={`${hero.name} image`} src={hero.image}></img>
+          <Image
+            alt={`${hero.name} image`}
+            src={hero.image}
+            width="100px"
+            height="100px"
+          ></Image>
           {hero.name}
         </Card>
       </a>

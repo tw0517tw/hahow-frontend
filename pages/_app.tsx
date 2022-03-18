@@ -2,6 +2,8 @@ import "../styles/globals.css";
 import type { AppProps } from "next/app";
 
 import styled, { createGlobalStyle, ThemeProvider } from "styled-components";
+import { QueryClient, QueryClientProvider } from "react-query";
+import { useState } from "react";
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -24,13 +26,17 @@ const theme = {
 };
 
 function App({ Component, pageProps }: AppProps) {
+  const [queryClient] = useState(() => new QueryClient());
+
   return (
     <>
       <GlobalStyle />
       <ThemeProvider theme={theme}>
-        <GlobalContainer>
-          <Component {...pageProps} />
-        </GlobalContainer>
+        <QueryClientProvider client={queryClient}>
+          <GlobalContainer>
+            <Component {...pageProps} />
+          </GlobalContainer>
+        </QueryClientProvider>
       </ThemeProvider>
     </>
   );
