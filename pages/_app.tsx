@@ -3,6 +3,7 @@ import type { AppProps } from "next/app";
 
 import styled, { createGlobalStyle, ThemeProvider } from "styled-components";
 import { QueryClient, QueryClientProvider } from "react-query";
+import { ReactQueryDevtools } from "react-query/devtools";
 import { useState } from "react";
 
 const GlobalStyle = createGlobalStyle`
@@ -36,6 +37,7 @@ function App({ Component, pageProps }: AppProps) {
           <GlobalContainer>
             <Component {...pageProps} />
           </GlobalContainer>
+          <ReactQueryDevtools initialIsOpen={false} />
         </QueryClientProvider>
       </ThemeProvider>
     </>

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { FC } from "react";
 import styled from "styled-components";
 
 export type HeroCardHero = {
@@ -28,7 +29,11 @@ const Card = styled.div<CardProps>`
   border-radius: 8px;
 `;
 
-const HeroCard = ({ hero }: { hero: HeroCardHero }) => {
+type HeroCardProps = {
+  hero: HeroCardHero;
+};
+
+const HeroCard: FC<HeroCardProps> = ({ hero }) => {
   const router = useRouter();
   const { heroId } = router.query;
 
