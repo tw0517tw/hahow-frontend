@@ -41,7 +41,7 @@ const SaveProfileButton: FC<SaveProfileButton> = ({
         onClick={() => {
           mutate(profile);
         }}
-        disabled={disabled}
+        disabled={disabled || isLoading}
       >
         {isLoading ? "🔄" : "儲存"}
       </button>
