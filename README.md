@@ -2,6 +2,8 @@
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+這是一個 [Hahow 前端測驗](https://github.com/hahow/hahow-recruit/blob/d9fbdc22adaeda36ecc5ed1a781c72e8f4f0866e/frontend.md)的實作。
+
 ## 該如何執行完成的 package
 
 ### 在本機執行 development server
