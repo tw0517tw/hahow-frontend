@@ -7,16 +7,22 @@ const InputWrapper = styled.div`
   flex-direction: row;
 `;
 
+const Button = styled.button`
+  padding: 0 4px;
+`;
+
 type ProfilePointInputProps = {
   value: number;
   maxValue: number;
   onChange: (newValue: number) => void;
+  isLoading?: boolean;
 };
 
 const ProfilePointInput: FC<ProfilePointInputProps> = ({
   value,
   maxValue,
   onChange,
+  isLoading = false,
 }) => {
   const handlePlus = () => {
     if (value + 1 > maxValue) {
@@ -34,9 +40,9 @@ const ProfilePointInput: FC<ProfilePointInputProps> = ({
 
   return (
     <InputWrapper>
-      <button onClick={handleMinus}> - </button>
-      <div style={{ margin: "0 12px" }}>{value}</div>
-      <button onClick={handlePlus}> + </button>
+      <Button onClick={handleMinus}>-</Button>
+      <div style={{ margin: "0 12px" }}>{isLoading ? "🔄" : value}</div>
+      <Button onClick={handlePlus}>+</Button>
     </InputWrapper>
   );
 };

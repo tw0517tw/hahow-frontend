@@ -2,8 +2,30 @@ import axios from "axios";
 import Image from "next/image";
 import { FC, useState } from "react";
 import { useQuery } from "react-query";
+import styled from "styled-components";
 import ProfilePointInput from "./ProfilePointInput";
 import SaveProfileButton from "./SaveProfileButton";
+
+const PanelWrapper = styled.div`
+  display: flex;
+  max-width: 720px;
+  margin: 16px;
+`;
+
+const PanelSide = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1 1 auto;
+  min-width: 240px;
+`;
+
+const Left = styled.div`
+  display: grid;
+  grid-template-columns: 100px 100px;
+  grid-template-rows: auto;
+  row-gap: 10px;
+`;
 
 export type HeroProfile = {
   str: number;
@@ -42,78 +64,78 @@ const ProfilePanel: FC<ProfilePanelProps> = ({ heroId }) => {
     return <div>Error...😱</div>;
   }
 
-  if (isLoading || isFetching) {
+  if (isLoading) {
     return (
       <Image src="/loading.png" width="100px" height="100px" alt="Loading" />
     );
   }
 
   if (isSuccess) {
-    const localPointSum = Object.values(localPoints).reduce((sum, curr) => {
-      return sum + curr;
+    const localPointSum = Object.values(localPoints).reduce((sum, current) => {
+      return sum + current;
     }, 0);
 
-    const remotePointSum = Object.values(data).reduce((sum, curr) => {
-      return sum + curr;
+    const remotePointSum = Object.values(data).reduce((sum, current) => {
+      return sum + current;
     }, 0);
 
     const pointAvailable = Math.max(remotePointSum - localPointSum, 0);
 
     return (
-      <div>
-        <div>
-          <div>
-            Str
+      <PanelWrapper>
+        <PanelSide>
+          <Left>
+            <div>Str</div>
             <ProfilePointInput
               value={localPoints.str}
               maxValue={localPoints.str + pointAvailable}
               onChange={(newValue) => {
                 setLocalPoints({ ...localPoints, str: newValue });
               }}
+              isLoading={isFetching}
             ></ProfilePointInput>
-          </div>
 
-          <div>
-            Int
+            <div>Int</div>
             <ProfilePointInput
               value={localPoints.int}
               maxValue={localPoints.int + pointAvailable}
               onChange={(newValue) => {
                 setLocalPoints({ ...localPoints, int: newValue });
               }}
+              isLoading={isFetching}
             ></ProfilePointInput>
-          </div>
 
-          <div>
-            Agi
+            <div>Agi</div>
             <ProfilePointInput
               value={localPoints.agi}
               maxValue={localPoints.agi + pointAvailable}
               onChange={(newValue) => {
                 setLocalPoints({ ...localPoints, agi: newValue });
               }}
+              isLoading={isFetching}
             ></ProfilePointInput>
-          </div>
 
-          <div>
-            Luk
+            <div>Luk</div>
             <ProfilePointInput
               value={localPoints.luk}
               maxValue={localPoints.luk + pointAvailable}
               onChange={(newValue) => {
                 setLocalPoints({ ...localPoints, luk: newValue });
               }}
+              isLoading={isFetching}
             ></ProfilePointInput>
-          </div>
-
+          </Left>
+        </PanelSide>
+        <PanelSide>
           <div>總點數: {remotePointSum}</div>
-          <div>剩餘點數: {pointAvailable}</div>
+          <div>剩餘點數: {isFetching ? "🔄" : pointAvailable}</div>
           <SaveProfileButton
             heroId={heroId}
             profile={localPoints}
+            disabled={pointAvailable !== 0}
           ></SaveProfileButton>
-        </div>
-      </div>
+        </PanelSide>
+      </PanelWrapper>
     );
   }
 

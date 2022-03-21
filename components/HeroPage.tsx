@@ -23,9 +23,13 @@ const HeroPage: NextPage = () => {
       {typeof heroId === "string" && (
         <ProfilePanel heroId={heroId}></ProfilePanel>
       )}
-      <Link href="/heroes" scroll={false}>
-        back to list
-      </Link>
+      {heroId && (
+        <Link href="/heroes" scroll={false}>
+          <a>
+            <button>取消選擇</button>
+          </a>
+        </Link>
+      )}
     </Container>
   );
 };

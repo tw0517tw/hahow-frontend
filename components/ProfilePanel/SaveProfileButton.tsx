@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 import { FC } from "react";
 import { useMutation, useQueryClient } from "react-query";
 import { HeroProfile } from "./ProfilePanel";
@@ -6,17 +6,27 @@ import { HeroProfile } from "./ProfilePanel";
 type SaveProfileButton = {
   heroId: string;
   profile: HeroProfile;
+  disabled?: boolean;
 };
 
-const SaveProfileButton: FC<SaveProfileButton> = ({ heroId, profile }) => {
+const SaveProfileButton: FC<SaveProfileButton> = ({
+  heroId,
+  profile,
+  disabled = false,
+}) => {
   const queryClient = useQueryClient();
-  const { mutate } = useMutation(
-    (profile: HeroProfile) => {
-      return axios.patch(
-        `https://hahow-recruit.herokuapp.com/heroes/${heroId}/profile`,
-        profile
-      );
-    },
+  const { mutate, isLoading, isError, error } = useMutation<
+    string,
+    AxiosError,
+    HeroProfile
+  >(
+    (profile) =>
+      axios
+        .patch(
+          `https://hahow-recruit.herokuapp.com/heroes/${heroId}/profile`,
+          profile
+        )
+        .then((res) => res.data),
     {
       onSuccess: () => {
         queryClient.invalidateQueries(["heroProfile", heroId]);
@@ -25,13 +35,18 @@ const SaveProfileButton: FC<SaveProfileButton> = ({ heroId, profile }) => {
   );
 
   return (
-    <button
-      onClick={() => {
-        mutate(profile);
-      }}
-    >
-      儲存
-    </button>
+    <>
+      <button
+        style={{ fontSize: "24px", marginTop: "8px" }}
+        onClick={() => {
+          mutate(profile);
+        }}
+        disabled={disabled}
+      >
+        {isLoading ? "🔄" : "儲存"}
+      </button>
+      <div style={{ color: "red" }}>{isError && error.message}</div>
+    </>
   );
 };
 
