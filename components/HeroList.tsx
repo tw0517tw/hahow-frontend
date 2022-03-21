@@ -1,6 +1,6 @@
 import axios from "axios";
 import React from "react";
-import { FC, useState } from "react";
+import { FC } from "react";
 import { useQuery } from "react-query";
 import styled from "styled-components";
 import HeroCard, { HeroCardHero } from "./HeroCard";
