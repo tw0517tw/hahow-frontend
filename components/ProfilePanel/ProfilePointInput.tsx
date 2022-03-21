@@ -41,7 +41,9 @@ const ProfilePointInput: FC<ProfilePointInputProps> = ({
   return (
     <InputWrapper>
       <Button onClick={handleMinus}>-</Button>
-      <div style={{ margin: "0 12px" }}>{isLoading ? "🔄" : value}</div>
+      <div style={{ margin: "0 12px", width: "32px", textAlign: "center" }}>
+        {isLoading ? "🔄" : value}
+      </div>
       <Button onClick={handlePlus}>+</Button>
     </InputWrapper>
   );
