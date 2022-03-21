@@ -44,7 +44,7 @@ next.js 會自動將 pages 內的檔案轉換為 routing，因此 `/heroes` 會�
 
 ### react / react-dom
 
-react 本體以及讓 react 可以 render 到瀏覽器上
+react 本體以及讓 react 可以 render 到瀏覽器上。
 
 ### react-query
 
