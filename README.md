@@ -10,11 +10,11 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 2. `cd hahow-frontend`
 3. `yarn`
 4. `yarn dev`
-5. 使用瀏覽器開啟 [http://localhost:3000/heroes]
+5. 使用瀏覽器開啟 <http://localhost:3000/heroes>
 
 ### 瀏覽正式部署的結果
 
-1. 使用瀏覽器開啟 [https://hahow-frontend.vercel.app/heroes/]
+1. 使用瀏覽器開啟 <https://hahow-frontend.vercel.app/heroes/>
 
 ## 專案的架構、Web 的架構邏輯
 
