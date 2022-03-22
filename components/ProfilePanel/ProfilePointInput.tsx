@@ -1,14 +1,12 @@
 import { FC } from "react";
 import styled from "styled-components";
 
+import Button from "../Button";
+
 const InputWrapper = styled.div`
   min-width: 180px;
   display: flex;
   flex-direction: row;
-`;
-
-const Button = styled.button`
-  padding: 0 4px;
 `;
 
 type ProfilePointInputProps = {

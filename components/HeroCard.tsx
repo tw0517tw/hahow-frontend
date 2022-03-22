@@ -10,9 +10,9 @@ export type HeroCardHero = {
   image: string;
 };
 
-interface CardProps {
-  readonly isActive: boolean;
-}
+type CardProps = {
+  isActive: boolean;
+};
 
 const Card = styled.div<CardProps>`
   max-width: 120px;

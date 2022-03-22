@@ -2,8 +2,10 @@ import { NextPage } from "next";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import styled from "styled-components";
+
 import HeroList from "./HeroList";
 import ProfilePanel from "./ProfilePanel/ProfilePanel";
+import Button from "./Button";
 
 const Container = styled.div`
   display: flex;
@@ -26,7 +28,7 @@ const HeroPage: NextPage = () => {
       {heroId && (
         <Link href="/heroes" scroll={false}>
           <a>
-            <button>取消選擇</button>
+            <Button>取消選擇</Button>
           </a>
         </Link>
       )}

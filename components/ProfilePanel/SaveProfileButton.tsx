@@ -1,6 +1,9 @@
 import axios, { AxiosError } from "axios";
 import { FC } from "react";
 import { useMutation, useQueryClient } from "react-query";
+
+import Button from "../Button";
+
 import { HeroProfile } from "./ProfilePanel";
 
 type SaveProfileButton = {
@@ -35,18 +38,18 @@ const SaveProfileButton: FC<SaveProfileButton> = ({
   );
 
   return (
-    <>
-      <button
-        style={{ fontSize: "24px", marginTop: "8px" }}
+    <div style={{ marginTop: "8px" }}>
+      <Button
+        fontSize="24px"
         onClick={() => {
           mutate(profile);
         }}
         disabled={disabled || isLoading}
       >
         {isLoading ? "🔄" : "儲存"}
-      </button>
+      </Button>
       <div style={{ color: "red" }}>{isError && error.message}</div>
-    </>
+    </div>
   );
 };
 
