@@ -1,5 +1,5 @@
-import { ComponentPropsWithoutRef, FC } from "react";
 import styled from "styled-components";
+import { ComponentPropsWithoutRef, FC } from "react";
 
 type StyledButtonProps = {
   fontSize?: string;

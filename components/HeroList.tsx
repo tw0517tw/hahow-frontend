@@ -1,9 +1,9 @@
-import axios from "axios";
+import HeroCard, { HeroCardHero } from "./HeroCard";
 import React from "react";
+import axios from "axios";
+import styled from "styled-components";
 import { FC } from "react";
 import { useQuery } from "react-query";
-import styled from "styled-components";
-import HeroCard, { HeroCardHero } from "./HeroCard";
 
 const List = styled.div`
   display: flex;

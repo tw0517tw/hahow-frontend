@@ -1,8 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/router";
-import { FC } from "react";
 import styled from "styled-components";
+import { FC } from "react";
+import { useRouter } from "next/router";
 
 export type HeroCardHero = {
   id: string;

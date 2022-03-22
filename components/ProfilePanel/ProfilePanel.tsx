@@ -1,10 +1,10 @@
-import axios from "axios";
 import Image from "next/image";
-import { FC, useState } from "react";
-import { useQuery } from "react-query";
-import styled from "styled-components";
 import ProfilePointInput from "./ProfilePointInput";
 import SaveProfileButton from "./SaveProfileButton";
+import axios from "axios";
+import styled from "styled-components";
+import { FC, useState } from "react";
+import { useQuery } from "react-query";
 
 const PanelWrapper = styled.div`
   display: flex;

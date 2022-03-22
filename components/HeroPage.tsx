@@ -1,11 +1,11 @@
-import { NextPage } from "next";
 import Link from "next/link";
-import { useRouter } from "next/router";
 import styled from "styled-components";
+import { NextPage } from "next";
+import { useRouter } from "next/router";
 
+import Button from "./Button";
 import HeroList from "./HeroList";
 import ProfilePanel from "./ProfilePanel/ProfilePanel";
-import Button from "./Button";
 
 const Container = styled.div`
   display: flex;
