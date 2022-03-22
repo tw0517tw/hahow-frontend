@@ -67,7 +67,9 @@ const ProfilePanel: FC<ProfilePanelProps> = ({ heroId }) => {
 
   if (isLoading) {
     return (
-      <Image src="/loading.png" width="100px" height="100px" alt="Loading" />
+      <div style={{ margin: "16px" }}>
+        <Image src="/loading.png" width="100px" height="100px" alt="Loading" />
+      </div>
     );
   }
 
