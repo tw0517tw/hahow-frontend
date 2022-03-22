@@ -10,7 +10,11 @@ const List = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  min-width: 480px;
+  min-width: 360px;
+
+  @media (max-width: 720px) {
+    max-width: 360px;
+  }
 `;
 
 const HeroList: FC = () => {

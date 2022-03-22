@@ -9,7 +9,7 @@ import { useQuery } from "react-query";
 const PanelWrapper = styled.div`
   display: flex;
   max-width: 720px;
-  margin: 16px;
+  flex-wrap: wrap;
 `;
 
 const PanelSide = styled.div`
@@ -18,6 +18,7 @@ const PanelSide = styled.div`
   align-items: center;
   flex: 1 1 auto;
   min-width: 240px;
+  margin: 16px;
 `;
 
 const Left = styled.div`
