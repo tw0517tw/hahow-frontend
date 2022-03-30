@@ -18,10 +18,13 @@ const List = styled.div`
 `;
 
 const HeroList: FC = () => {
-  const { isLoading, isError, data } = useQuery<HeroCardHero[]>("heroes", () =>
-    axios
-      .get("https://hahow-recruit.herokuapp.com/heroes")
-      .then((res) => res.data)
+  const { isLoading, isError, data } = useQuery<HeroCardHero[]>(
+    "heroes",
+    () =>
+      axios
+        .get("https://hahow-recruit.herokuapp.com/heroes")
+        .then((res) => res.data),
+    { refetchOnWindowFocus: false }
   );
 
   if (isError) {
